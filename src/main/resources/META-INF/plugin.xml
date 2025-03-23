@@ -1,0 +1,111 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.stark.SetterSmith</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>SetterSmith</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="manthirajak@gmail.com" url="https://www.google.com/">Stark Industries</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SetterSmith: Automate Your Setter Method Generation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #333;
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    .cta {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SetterSmith: Automate Your Setter Method Generation</h1>
+    <p>
+      SetterSmith is your go-to IntelliJ IDEA plugin for eliminating boilerplate code and streamlining your Java development workflow. With a single click, this intuitive tool scans your classes, identifies fields, and generates robust setter methods with all the necessary parameters to ensure consistency and precision.
+    </p>
+    <h2>Key Features:</h2>
+    <ul>
+      <li>
+        <strong>Quick Generation:</strong> Automatically create setter methods for your class fields, drastically reducing the time spent on repetitive coding.
+      </li>
+      <li>
+        <strong>Customizable Templates:</strong> Tailor the generated setter methods to meet your project’s style and standards, ensuring seamless integration with your existing codebase.
+      </li>
+      <li>
+        <strong>Enhanced Code Consistency:</strong> Adhere to best practices with setter methods that are consistently structured and formatted, making your code cleaner and more maintainable.
+      </li>
+      <li>
+        <strong>Native IntelliJ IDEA Integration:</strong> Enjoy a smooth, integrated experience that leverages the power of IntelliJ IDEA’s interface, context menus, and shortcuts.
+      </li>
+    </ul>
+    <p>
+      Whether you're refactoring legacy code or setting up new projects, SetterSmith frees your creativity to focus on solving unique challenges—leaving the mundane, repetitive tasks in the past. With SetterSmith, you can enhance your coding efficiency while keeping your code elegant and professional.
+    </p>
+    <p class="cta">
+      Dive in today and transform your development workflow with SetterSmith!
+    </p>
+  </div>
+</body>
+</html>]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <action id="GenerateSetterAction" class="org.stark.settersmith.actions.GenerateSetterAction"
+                text="GenerateSetterAction" >
+            <add-to-group group-id="Floating.CodeToolbar" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
