@@ -20,7 +20,6 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class GenerateSetterAction extends AnAction {
     private static final Logger LOG = LoggerFactory.getLogger(GenerateSetterAction.class);
@@ -125,13 +124,15 @@ public class GenerateSetterAction extends AnAction {
     private List<String> createSetterCallForMethod(PsiMethod method, String variableName, Map<String, String> parameterMap) {
         List<PsiParameter> parameters = List.of(method.getParameterList().getParameters());
 
+        Map<String, String> localParameterMap = new LinkedHashMap<>();
         for (PsiParameter param : parameters) {
-            parameterMap.putIfAbsent(param.getName(), param.getType().getCanonicalText());
+            String paramName = method.getName().substring(3);
+            paramName = Character.toLowerCase(paramName.charAt(0)) + paramName.substring(1);
+            parameterMap.putIfAbsent(paramName, param.getType().getCanonicalText());
+            localParameterMap.put(paramName, param.getType().getCanonicalText());
         }
 
-        String callParameters = parameters.stream()
-                .map(PsiParameter::getName)
-                .collect(Collectors.joining(", "));
+        String callParameters = String.join(", ", localParameterMap.keySet());
 
         return List.of(variableName + "." + method.getName() + "(" + callParameters + ");");
     }
