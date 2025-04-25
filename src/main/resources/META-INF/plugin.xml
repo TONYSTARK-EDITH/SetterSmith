@@ -1,19 +1,19 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-  <id>org.stark.SetterSmith</id>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>org.stark.SetterSmith</id>
 
-  <!-- Public plugin name should be written in Title Case.
-       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-  <name>SetterSmith</name>
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>SetterSmith</name>
 
-  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-  <vendor email="manthirajak@gmail.com" url="https://www.google.com/">Stark Industries</vendor>
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="manthirajak@gmail.com" url="https://www.google.com/">Stark Industries</vendor>
 
-  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-  <description><![CDATA[
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,25 +90,25 @@
 </body>
 </html>]]></description>
 
-  <!-- Product and plugin compatibility requirements.
-       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
-  <depends>com.intellij.modules.platform</depends>
-  <depends>com.intellij.modules.lang</depends>
-  <depends>com.intellij.modules.java</depends>
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
 
-  <!-- Extension points defined by the plugin.
-       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-  <extensions defaultExtensionNs="com.intellij">
-    <notificationGroup
-      id="SetterSmith.Notifications"
-      displayType="TOOL_WINDOW"/>
-  </extensions>
-  <actions>
-    <action id="GenerateSetterAction" class="org.stark.settersmith.actions.GenerateSetterAction"
-      text="GenerateSetterAction" icon="AllIcons.Actions.InlayGear">
-      <add-to-group group-id="Floating.CodeToolbar" anchor="first"/>
-      <add-to-group group-id="GenerateGroup" anchor="first"/>
-    </action>
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup
+                id="SetterSmith.Notifications"
+                displayType="TOOL_WINDOW"/>
+    </extensions>
+    <actions>
+        <action id="GenerateSetterAction" class="org.stark.settersmith.actions.GenerateSetterAction"
+                text="GenerateSetterAction" icon="AllIcons.Actions.InlayGear">
+            <add-to-group group-id="Floating.CodeToolbar" anchor="first"/>
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
 
-  </actions>
+    </actions>
 </idea-plugin>

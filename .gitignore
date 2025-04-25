@@ -44,4 +44,8 @@ bin/
 ### Mac OS ###
 .DS_Store
 gradlew
-gradlew.bat
+gradlew.bat!/.run/
+!/gradle/
+!/.intellijPlatform/
+!/.run/
+!/.gradle/
