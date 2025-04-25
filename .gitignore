@@ -49,3 +49,7 @@ gradlew.bat!/.run/
 !/.intellijPlatform/
 !/.run/
 !/.gradle/
+/.gradle
+/.intellijPlatform
+/.run
+/gradle
