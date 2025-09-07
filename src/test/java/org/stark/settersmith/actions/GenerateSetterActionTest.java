@@ -1,7 +1,9 @@
 package org.stark.settersmith.actions;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Test class for {@link GenerateSetterAction}.
@@ -14,7 +16,7 @@ public class GenerateSetterActionTest {
     @Test
     public void testActionInstantiation() {
         GenerateSetterAction action = new GenerateSetterAction();
-        Assert.assertNotNull("Action should be instantiated", action);
+        assertNotNull(action);
     }
 
     /**
@@ -23,6 +25,6 @@ public class GenerateSetterActionTest {
     @Test
     public void testGetActionUpdateThread() {
         GenerateSetterAction action = new GenerateSetterAction();
-        Assert.assertNotNull("Action update thread should not be null", action.getActionUpdateThread());
+        assertNotNull(action.getActionUpdateThread());
     }
 }

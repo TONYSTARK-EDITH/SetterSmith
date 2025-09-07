@@ -1,12 +1,17 @@
 plugins {
     id("java")
+    id("jacoco")
     id("org.jetbrains.kotlin.jvm") version "1.9.25"
     id("org.jetbrains.intellij.platform") version "2.5.0"
+}
 
+jacoco {
+    // Set the JaCoCo tool version you want to use.
+    toolVersion = "0.8.13"
 }
 
 group = "org.stark"
-version = "1.2-SNAPSHOT"
+version = "1.2.1-SNAPSHOT"
 repositories {
     mavenCentral()
     intellijPlatform {
@@ -22,7 +27,8 @@ dependencies {
         create(type, version)
         bundledPlugin("com.intellij.java")
     }
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(platform("org.junit:junit-bom:5.9.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
 tasks {
@@ -37,7 +43,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("225")
-        untilBuild.set("251.*")
+        untilBuild.set("252.*")
     }
 
     signPlugin {
@@ -50,3 +56,20 @@ tasks {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 }
+
+
+tasks.test {
+    useJUnitPlatform() // If using JUnit 5
+    finalizedBy(tasks.jacocoTestReport) // Ensure the report is generated after tests run
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)  // Useful for CI/CD tools like SonarQube
+        html.required.set(true)  // Generates an easy-to-read HTML report
+        csv.required.set(false)
+        html.outputLocation.set(layout.buildDirectory.dir("reports/jacoco/html"))
+    }
+}
+
